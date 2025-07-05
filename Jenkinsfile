@@ -1,16 +1,13 @@
 pipeline {
     agent any
-
     tools {
-        maven 'Maven-3.9.10'  // replace with your configured Maven name
+        maven 'Maven-3.9.10' // your configured maven
     }
-
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
                     url: 'git@github.com:kedarekruthika/HerokuAppAutomation.git'
-                // optionally add credentialsId: 'github-ssh' if you created it
             }
         }
         stage('Build & Test') {
@@ -21,7 +18,7 @@ pipeline {
     }
     post {
         always {
-            allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'target/allure-results']]
+            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
     }
 }
