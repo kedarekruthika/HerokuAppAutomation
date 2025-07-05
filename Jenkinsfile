@@ -2,39 +2,26 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3.9.10' // use exactly the name you configured in Jenkins → Global Tool Configuration
-    }
-
-    environment {
-        // Example: load your config property if needed
-        // CONFIG = credentials('my-config') // if you stored config in Jenkins credentials
+        maven 'Maven-3.9.10'  // replace with your configured Maven name
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/your/repo.git',
-                    credentialsId: 'github-token'
+                    url: 'git@github.com:kedarekruthika/HerokuAppAutomation.git'
+                // optionally add credentialsId: 'github-ssh' if you created it
             }
         }
-
         stage('Build & Test') {
             steps {
                 sh 'mvn clean test'
             }
         }
-
-        stage('Publish Allure Report') {
-            steps {
-                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
-            }
-        }
     }
-
     post {
         always {
-            junit '**/target/surefire-reports/*.xml'
+            allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'target/allure-results']]
         }
     }
 }
