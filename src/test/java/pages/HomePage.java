@@ -13,12 +13,12 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // increased timeout
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));  
     }
 
     By searchBox = By.id("gh-ac");
     By searchButton = By.xpath("//button[@type ='submit' and @id ='gh-search-btn']");
-    By searchResultsContainer = By.xpath("//ul[contains(@class,'srp-results')]");  // eBay search results container
+    By searchResultsContainer = By.xpath("//ul[contains(@class,'srp-results')]");  
 
     public void enterSearchText(String text) {
         WebElement box = wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));

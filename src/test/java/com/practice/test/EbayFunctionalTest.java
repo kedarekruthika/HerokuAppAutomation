@@ -1,6 +1,7 @@
 package com.practice.test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,6 +42,12 @@ public class EbayFunctionalTest {
         int cartCount = itemPage.getCartCount();
         System.out.println("Cart count: " + cartCount);
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 300);");
+        File cartSectionScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(cartSectionScreenshot, new File("./screenshots/cart_section.png"));
+        System.out.println("Cart section screenshot saved.");
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(
             By.xpath("//span[@class='gh-cart__icon']")));
@@ -48,6 +55,7 @@ public class EbayFunctionalTest {
         File fullScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileHandler.copy(fullScreenshot, new File("./screenshots/full_cart_page.png"));
         System.out.println("Full-page screenshot saved.");
+    
     }
 
     @AfterClass
