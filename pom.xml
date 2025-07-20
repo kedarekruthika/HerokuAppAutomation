@@ -32,10 +32,50 @@
     <scope>test</scope>
 </dependency>
 <dependency>
+  <groupId>commons-io</groupId>
+  <artifactId>commons-io</artifactId>
+  <version>2.11.0</version>
+</dependency>
+<dependency>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-testng</artifactId> <!-- use allure-junit if you use JUnit -->
         <version>2.24.0</version>
     </dependency>
+    <!-- ✅ Rest Assured -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- ✅ JSON path if you want to extract data easily -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>json-path</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- ✅ Cucumber (for BDD) -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>7.14.0</version>
+</dependency>
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId> <!-- use cucumber-junit if you prefer JUnit -->
+    <version>7.14.0</version>
+</dependency>
+
+<!-- ✅ Optional: Cucumber reporting plugin -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-html</artifactId>
+    <version>0.2.7</version>
+</dependency>
+
   </dependencies>
 
   <build>
