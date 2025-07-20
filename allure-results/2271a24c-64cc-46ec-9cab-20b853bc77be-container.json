@@ -1,1 +1,0 @@
-{"uuid":"2271a24c-64cc-46ec-9cab-20b853bc77be","name":"com.practice.test.EbayFunctionalTest","children":["dcfcc2f1-f00f-494a-999d-7848b59660be"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1752992351928,"stop":1752992353284}],"afters":[],"start":1752992351918,"stop":1752992388667}
