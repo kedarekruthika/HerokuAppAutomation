@@ -10,15 +10,18 @@ public class ConfigReader {
 
     public static void loadProperties() {
         try {
-            FileInputStream fis = new FileInputStream("src/test/resources/config.properties");
+            FileInputStream fis = new FileInputStream("src/test/resources/apiconfig.properties");
             properties.load(fis);
         } catch (IOException e) {
-            System.out.println("Could not load config.properties file");
             e.printStackTrace();
         }
     }
 
     public static String get(String key) {
         return properties.getProperty(key);
+    }
+
+    public static int getTimeout() {
+        return Integer.parseInt(properties.getProperty("api.timeout"));
     }
 }
